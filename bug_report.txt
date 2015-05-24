@@ -1,5 +1,0 @@
-Je créé un petit fichier où on mettra tout ce qui va pas de façon détaillé :)
-
-Alors la si je vais dans une partie normal, que j'entre en godmod, puis que je quitte avec backspace vers le menu puis que je relance :
-- en partie normal pas de musique
-- en training j'ai la musique du menu 
