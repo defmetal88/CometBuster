@@ -1,0 +1,11 @@
+#!/bin/bash
+iskernelosx=`uname | grep Darwin`
+if [ -z "$iskernelosx" ]; 
+then
+	cp Makefile_linux Makefile
+else
+	cp Makefile_osx Makefile
+fi
+make clean
+make
+./cometbuster

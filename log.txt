@@ -1,0 +1,675 @@
+------------------------------------------------------------------------
+r127 | petit137u | 2015-05-24 13:35:09 +0200 (Dim, 24 mai 2015) | 1 line
+
+rajout de list_free pour que les explosions n'apparaissent pas figé dans le menu
+------------------------------------------------------------------------
+r126 | petit137u | 2015-05-24 12:46:01 +0200 (Dim, 24 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r125 | defix1u | 2015-05-24 12:32:16 +0200 (Dim, 24 mai 2015) | 2 lines
+
+desactivation du score si godmod activé
+
+------------------------------------------------------------------------
+r124 | defix1u | 2015-05-24 12:11:53 +0200 (Dim, 24 mai 2015) | 2 lines
+
+redimmensionnement de la musique du godmod
+
+------------------------------------------------------------------------
+r123 | defix1u | 2015-05-24 11:56:23 +0200 (Dim, 24 mai 2015) | 2 lines
+
+envoi de la musique
+
+------------------------------------------------------------------------
+r122 | defix1u | 2015-05-24 11:55:02 +0200 (Dim, 24 mai 2015) | 2 lines
+
+changement de musique lors du godmod et music en pause lors de pause
+
+------------------------------------------------------------------------
+r121 | petit137u | 2015-05-24 00:42:02 +0200 (Dim, 24 mai 2015) | 1 line
+
+Ajout des tires illimités en godmod
+------------------------------------------------------------------------
+r120 | petit137u | 2015-05-24 00:28:47 +0200 (Dim, 24 mai 2015) | 1 line
+
+Pause fonctionnelle
+------------------------------------------------------------------------
+r119 | petit137u | 2015-05-23 23:32:05 +0200 (Sam, 23 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r118 | petit137u | 2015-05-23 23:30:54 +0200 (Sam, 23 mai 2015) | 4 lines
+
+Résolution des fuites de mémoires :
+- Non utilisation de TTF_CloseFont pour chaque font
+- Ajout de deux free() dans la fonction delete de list.c
+
+------------------------------------------------------------------------
+r117 | petit137u | 2015-05-23 21:21:32 +0200 (Sam, 23 mai 2015) | 2 lines
+
+Collision pixel par pixel enfin fonctionnelle pour toutes les collisions (enfin je crois) Merci de m'avertir de tout putain de bug remarqué :3
+
+------------------------------------------------------------------------
+r116 | defix1u | 2015-05-23 21:18:04 +0200 (Sam, 23 mai 2015) | 2 lines
+
+leger changement du menu music
+
+------------------------------------------------------------------------
+r115 | defix1u | 2015-05-23 19:24:44 +0200 (Sam, 23 mai 2015) | 2 lines
+
+menu music accessible avec les fleche haut et bas
+
+------------------------------------------------------------------------
+r114 | petit137u | 2015-05-23 14:43:58 +0200 (Sam, 23 mai 2015) | 1 line
+
+resolution des lags de collisions
+------------------------------------------------------------------------
+r113 | petit137u | 2015-05-23 14:34:55 +0200 (Sam, 23 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r112 | petit137u | 2015-05-23 14:30:20 +0200 (Sam, 23 mai 2015) | 1 line
+
+COLLISION PP
+------------------------------------------------------------------------
+r111 | petit137u | 2015-05-23 13:25:11 +0200 (Sam, 23 mai 2015) | 1 line
+
+ajout de la zone de non pop des aste au milieu de l'écran. Reste appuyé sur w en jeu pour voir la zone ;)
+------------------------------------------------------------------------
+r110 | petit137u | 2015-05-23 13:09:11 +0200 (Sam, 23 mai 2015) | 1 line
+
+ajout de la non repet de certaine touche je te dirais comment ça marche
+------------------------------------------------------------------------
+r109 | defix1u | 2015-05-23 04:46:58 +0200 (Sam, 23 mai 2015) | 43 lines
+
+immense MAJ: 
+
+_ le menu ne contient plus les asteroides en mouvement 
+pour des raisons pratiques.
+
+_il y a maintenant MusicManagement.h et MusicManagement.c qui permet
+ de lire la musique en fonction du choix effectué (allège le programme) mais
+ il sera suivi d'autre fonction en rapport avec la gestion de la musique.
+
+_ les 3 makefiles ont deja recu MusicManagement
+
+_utilisation de musicplayed(): si celui-ci vaut 1 alors c'est qu'une musique
+est en lecture et vaut 0 si aucune musique est en lecture.
+UTILISATION:
+si une musique non aleatoire se termine alors celle-ci recommence
+grace a la fonction Rewindmusic()
+si une musique aleatoire se termine alors une nouvelle musique aleatoire
+est généré puis s'execute.
+
+_l'etat "end" est accessible uniquement si gameover==true,dorenavant
+lorsque la liste d'asteroide est vide, on enchaine directement au
+niveau suivant avec la condition state=init et non plus state=end.
+
+_ lors du demarrage de CHAQUE NIVEAU il y a maintenant un affichage
+de 2 seconde du niveau actuel ce qui nous permet de faire une transition
+entre chaque niveau.
+
+_bruitage des explosions actif et operationnel.
+
+_la musique ne se coupe dorénavant plus grace a la fluidité entre les niveau.
+la seule condition pour interrompre la musique est le gameover
+
+_pour le moment retourner au menu en pleine partie est indisponible
+donc ne pas choisir training pour le moment car le seul moyen de le quitter
+et de fermer le jeux par echap ou q , ceci fera l'objectif de la prochaine MAJ:
+on prendra la touche (backspace) qui engendrera un gameover pour chaque appui
+dans l'etat Play.
+
+_ la touche W ne sert désormais plus à gagner mais à passer un niveau.
+
+_ aucune erreur detectée, le programme fonctionne dans toutes les conditions
+ 
+
+------------------------------------------------------------------------
+r108 | petit137u | 2015-05-23 02:23:17 +0200 (Sam, 23 mai 2015) | 1 line
+
+sup de l'option -a de uname qui était useless
+------------------------------------------------------------------------
+r107 | petit137u | 2015-05-23 02:20:48 +0200 (Sam, 23 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r106 | petit137u | 2015-05-23 02:20:23 +0200 (Sam, 23 mai 2015) | 2 lines
+
+Ajout d'un petit script qui exe make clean; make;./cometbuster en fonction de l'os sur lequel on est (gere que os x et linux) 
+
+------------------------------------------------------------------------
+r105 | petit137u | 2015-05-23 01:08:21 +0200 (Sam, 23 mai 2015) | 1 line
+
+last commit before dodo -> regle le delay des shot :) bonne nuit copain
+------------------------------------------------------------------------
+r104 | defix1u | 2015-05-23 00:52:08 +0200 (Sam, 23 mai 2015) | 2 lines
+
+menu reinitialisé
+
+------------------------------------------------------------------------
+r103 | petit137u | 2015-05-23 00:48:47 +0200 (Sam, 23 mai 2015) | 1 line
+
+ajout des delays (fonctionnel pour le menu
+------------------------------------------------------------------------
+r102 | defix1u | 2015-05-23 00:05:58 +0200 (Sam, 23 mai 2015) | 2 lines
+
+son du tir PAN PAN PAN !!!
+
+------------------------------------------------------------------------
+r101 | petit137u | 2015-05-22 22:58:59 +0200 (Ven, 22 mai 2015) | 1 line
+
+Simplification du code et ajout des fcts printMainMenu et printMusicMenu
+------------------------------------------------------------------------
+r100 | petit137u | 2015-05-22 14:03:27 +0200 (Ven, 22 mai 2015) | 1 line
+
+Ajout de printText pour le swag. Je crois de plus que je fais le 100 eme commit... PUTAIN DE CHAMPAGNEEEEEEEEE
+------------------------------------------------------------------------
+r99 | petit137u | 2015-05-22 13:41:42 +0200 (Ven, 22 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r98 | defix1u | 2015-05-22 02:53:34 +0200 (Ven, 22 mai 2015) | 2 lines
+
+un mode aleatoire est disponible et operationnel dans le menu MUSIC !!!
+
+------------------------------------------------------------------------
+r97 | defix1u | 2015-05-22 00:26:11 +0200 (Ven, 22 mai 2015) | 3 lines
+
+invicible pendant deux secondes lors du demarrage du jeu ainsi
+qu'au demarrage de chaque niveau !
+
+------------------------------------------------------------------------
+r96 | defix1u | 2015-05-21 23:57:34 +0200 (Jeu, 21 mai 2015) | 2 lines
+
+Nouvelle playlist et l'option musique est à présent terminée!
+
+------------------------------------------------------------------------
+r95 | defix1u | 2015-05-21 23:12:17 +0200 (Jeu, 21 mai 2015) | 5 lines
+
+ajout d'une deuxieme musique disponible dans MUSIC 
+MUSIC fonctionne a merveille pour indiquer la musique que tu veux jouer
+lors du PLAY, certe pour l'instant il n'y a que 2 musique mais ça fonctionne
+
+
+------------------------------------------------------------------------
+r94 | defix1u | 2015-05-21 19:45:57 +0200 (Jeu, 21 mai 2015) | 4 lines
+
+NOUVEAU: menu music accessible (pour revenir il faut taper sur backspace)
+les musiques ne sont pas encore ajoutées -> prochaine MAJ 
+
+
+------------------------------------------------------------------------
+r93 | defix1u | 2015-05-21 15:23:24 +0200 (Jeu, 21 mai 2015) | 2 lines
+
+mod vider la liste d'asteroide + recalibrage des touches dans les différents etats
+
+------------------------------------------------------------------------
+r92 | defix1u | 2015-05-21 13:50:48 +0200 (Jeu, 21 mai 2015) | 2 lines
+
+menu entrainement ajouté !!!
+
+------------------------------------------------------------------------
+r91 | defix1u | 2015-05-21 11:24:16 +0200 (Jeu, 21 mai 2015) | 2 lines
+
+abcd
+
+------------------------------------------------------------------------
+r90 | defix1u | 2015-05-21 09:54:20 +0200 (Jeu, 21 mai 2015) | 2 lines
+
+game of throoooones
+
+------------------------------------------------------------------------
+r89 | petit137u | 2015-05-21 09:53:10 +0200 (Jeu, 21 mai 2015) | 1 line
+
+corrigesegfault
+------------------------------------------------------------------------
+r88 | petit137u | 2015-05-21 09:51:47 +0200 (Jeu, 21 mai 2015) | 1 line
+
+tarace$
+------------------------------------------------------------------------
+r87 | petit137u | 2015-05-21 09:24:31 +0200 (Jeu, 21 mai 2015) | 1 line
+
+tarace
+------------------------------------------------------------------------
+r86 | defix1u | 2015-05-21 00:44:36 +0200 (Jeu, 21 mai 2015) | 3 lines
+
+ajout musique gameover, gestion amelioré des musiques en fonction de leur ecran
+maintenant appuyer sur entrée dans le game over pour revenir au menu
+
+------------------------------------------------------------------------
+r85 | defix1u | 2015-05-20 23:41:10 +0200 (Mer, 20 mai 2015) | 2 lines
+
+ajout de la musique d'ecran titre et les deux musiques sont gerées dans leur ecran respecif 
+
+------------------------------------------------------------------------
+r84 | defix1u | 2015-05-20 22:54:01 +0200 (Mer, 20 mai 2015) | 2 lines
+
+rectification des probleme lors de l'enchainement de niveau
+
+------------------------------------------------------------------------
+r83 | defix1u | 2015-05-20 22:34:23 +0200 (Mer, 20 mai 2015) | 2 lines
+
+musique au lancement du jeu et non pas du programme
+
+------------------------------------------------------------------------
+r82 | defix1u | 2015-05-20 16:48:38 +0200 (Mer, 20 mai 2015) | 3 lines
+
+musique et son accessible , une musique est en place par mon choix
+Mix_Playmusic(nomdemusic.mp3, nbre de fois a jouer) , -1 = illimité
+
+------------------------------------------------------------------------
+r81 | petit137u | 2015-05-20 15:45:46 +0200 (Mer, 20 mai 2015) | 1 line
+
+plop
+------------------------------------------------------------------------
+r80 | defix1u | 2015-05-20 15:15:29 +0200 (Mer, 20 mai 2015) | 2 lines
+
+NEW MENU (beta) !!!!
+
+------------------------------------------------------------------------
+r79 | defix1u | 2015-05-20 13:23:37 +0200 (Mer, 20 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r78 | defix1u | 2015-05-20 12:37:41 +0200 (Mer, 20 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r77 | petit137u | 2015-05-20 10:08:52 +0200 (Mer, 20 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r76 | defix1u | 2015-05-20 09:46:22 +0200 (Mer, 20 mai 2015) | 3 lines
+
+rectification la variable NB_ASTEROIDE_AT_STARTUP n'etait pas 
+reinitialisé a 3 si gameover , probleme resolu
+
+------------------------------------------------------------------------
+r75 | petit137u | 2015-05-20 09:11:54 +0200 (Mer, 20 mai 2015) | 3 lines
+
+remetage du makefile linux apres Xtrem fail
+
+
+------------------------------------------------------------------------
+r74 | petit137u | 2015-05-20 09:06:10 +0200 (Mer, 20 mai 2015) | 2 lines
+
+nettoyage
+
+------------------------------------------------------------------------
+r73 | defix1u | 2015-05-20 01:41:28 +0200 (Mer, 20 mai 2015) | 9 lines
+
+_ reglage de certain probleme de l' init du main.c
+
+_ affichage du level a chaque etape (menu ,play ,end) 
+
+_ affichage du score en etape end pour voir ou nous en somme
+
+_gestion des niveaux operationnelle
+
+
+------------------------------------------------------------------------
+r72 | defix1u | 2015-05-20 00:40:24 +0200 (Mer, 20 mai 2015) | 15 lines
+
+la liste d'asteroide est plus un define mais une variable.
+
+chaque niveau niveau est geré par 1 astéroide supplémentaire par niveau 
+
+level est une variable qui augmente de 1 a chaque tour si dans "end"
+la liste d'asteroide est vide donc niveaux illimités
+
+si il y a game over le level retombe a 1
+
+dans "init" le score et le nombre de vie sont reinitialisés si gameover==true
+, car le gameover=false est seulement a la fin du "init" donc
+ les deux choix de repetition du programme gameover true ou false 
+sont gerés  
+
+
+------------------------------------------------------------------------
+r71 | defix1u | 2015-05-19 23:24:18 +0200 (Mar, 19 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r70 | defix1u | 2015-05-19 22:38:12 +0200 (Mar, 19 mai 2015) | 3 lines
+
+ajout d'element d'initialisation dans init du main.c
+
+
+------------------------------------------------------------------------
+r69 | petit137u | 2015-05-19 22:23:09 +0200 (Mar, 19 mai 2015) | 2 lines
+
+Backup des deux makefile dont celui dont je suis amoureux + tu gere la putain de fougere !!
+
+------------------------------------------------------------------------
+r68 | defix1u | 2015-05-19 21:38:28 +0200 (Mar, 19 mai 2015) | 17 lines
+
+ajout de la bulle de protection en cas d'invincibilite et le temps des 2
+secondes de reapparition.
+
+ajout d'un etat "init" initialisation (merci captain obvious) lors du retour
+au menu l'init permet de vider la liste d'asteroides et permet de faire
+tourner la boucle d'initasteroide car si tu l'a fait tourner dans
+state==menu les asteroide pop a l'infini (c'est problematique)
+
+
+donc le retour par la touche m renvoi en realité dans le init mais            
+du coup on ne le voit pas 
+
+
+a la fin du init tu as un state=menu donc le init renvoi directement sur
+le menu
+
+
+------------------------------------------------------------------------
+r67 | defix1u | 2015-05-19 18:24:41 +0200 (Mar, 19 mai 2015) | 2 lines
+
+press m to menu ;)
+
+------------------------------------------------------------------------
+r66 | defix1u | 2015-05-19 17:50:51 +0200 (Mar, 19 mai 2015) | 2 lines
+
+appuyer sur o pour desactiver le GODMOD
+
+------------------------------------------------------------------------
+r65 | defix1u | 2015-05-19 17:47:13 +0200 (Mar, 19 mai 2015) | 2 lines
+
+GODMOD en appuyant sur i en jeu !!!
+
+------------------------------------------------------------------------
+r64 | petit137u | 2015-05-19 15:56:08 +0200 (Mar, 19 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r63 | defix1u | 2015-05-19 15:42:25 +0200 (Mar, 19 mai 2015) | 2 lines
+
+affichage du congratulation mais tu ne le verra jamais !!!
+
+------------------------------------------------------------------------
+r62 | petit137u | 2015-05-19 15:17:36 +0200 (Mar, 19 mai 2015) | 1 line
+
+Projet propre du mardi 19 
+------------------------------------------------------------------------
+r61 | petit137u | 2015-05-19 15:05:21 +0200 (Mar, 19 mai 2015) | 2 lines
+
+osxtarace
+
+------------------------------------------------------------------------
+r60 | defix1u | 2015-05-19 14:35:05 +0200 (Mar, 19 mai 2015) | 2 lines
+
+456
+
+------------------------------------------------------------------------
+r59 | defix1u | 2015-05-19 14:32:59 +0200 (Mar, 19 mai 2015) | 2 lines
+
+affichage du GAMEOVER
+
+------------------------------------------------------------------------
+r58 | defix1u | 2015-05-19 14:22:00 +0200 (Mar, 19 mai 2015) | 2 lines
+
+123
+
+------------------------------------------------------------------------
+r57 | petit137u | 2015-05-19 13:50:27 +0200 (Mar, 19 mai 2015) | 1 line
+
+.
+------------------------------------------------------------------------
+r56 | defix1u | 2015-05-19 13:47:06 +0200 (Mar, 19 mai 2015) | 2 lines
+
+menu qui tue !!!
+
+------------------------------------------------------------------------
+r55 | petit137u | 2015-05-19 13:01:57 +0200 (Mar, 19 mai 2015) | 2 lines
+
+Debug du pb de crash
+
+------------------------------------------------------------------------
+r54 | petit137u | 2015-05-19 12:54:10 +0200 (Mar, 19 mai 2015) | 2 lines
+
+Ajout des état de jeux / menu / play / fin
+
+------------------------------------------------------------------------
+r53 | defix1u | 2015-05-19 12:43:46 +0200 (Mar, 19 mai 2015) | 2 lines
+
+score centré
+
+------------------------------------------------------------------------
+r52 | defix1u | 2015-05-19 11:26:37 +0200 (Mar, 19 mai 2015) | 2 lines
+
+un ttf qui a de la gueule !!!
+
+------------------------------------------------------------------------
+r51 | petit137u | 2015-05-19 11:21:23 +0200 (Mar, 19 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r50 | petit137u | 2015-05-19 10:35:09 +0200 (Mar, 19 mai 2015) | 1 line
+
+Rien d'important
+------------------------------------------------------------------------
+r49 | petit137u | 2015-05-18 20:41:27 +0200 (Lun, 18 mai 2015) | 7 lines
+
+Grosse MAJ Copain : 
+	- Le pb des petits asteroids ne rapportant pas de point est réglé
+	- Pour éviter qu'on passe pour des noob avec le champs immense de #define qu'il y avait dans le .h j'ai utilisé un type énuméré et j'ai supprimé les #define POUR LES INDICES DU TABLEAU
+	Maintenant au lieu de mettre surfaces[SPACE] faudra mettre surfaces[id = iSPACE] / surfaces[SMALL_ASTE] -> surfaces[id = iSMALL_ASTE] -> ce changement ne sert qu'à faire bien et à éviter l'abus abusé du #define que j'ai fait mais c'est important. En gros un type énuméré ça se déclare comme ça : enum id_tab {iSPACE, iSPACESHIP, iSMALL_ASTE, ...}; ou ispace vaut 0, ispaceship vaut 1 et etc... donc on gagne pas en simplicité mais je pense que ça passera mieux.
+
+	- Ensuite ajout des explosions pour chaque asteroids via l'ajout d'une liste d'explosion avec un cas spécial pour le vaisseau. <- ça à l'air de bien marcher.
+	- Et si tu lis ça et pas les autres log, le prog tourne niquel sous os x avec un seul et même code (j'ai du faire quelque petite modif (le compilateur d'apple pue trop))
+------------------------------------------------------------------------
+r48 | petit137u | 2015-05-18 15:27:41 +0200 (Lun, 18 mai 2015) | 2 lines
+
+Ajout de deux fichier fournis par les développeurs de la SDL pour prendre en charge OS X
+Compile et fonctionne correctement sous OS X
+------------------------------------------------------------------------
+r47 | petit137u | 2015-05-18 14:55:44 +0200 (Lun, 18 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r46 | petit137u | 2015-05-18 14:54:05 +0200 (Lun, 18 mai 2015) | 2 lines
+
+Test commit terminal os x
+
+------------------------------------------------------------------------
+r45 | petit137u | 2015-05-18 14:15:33 +0200 (Lun, 18 mai 2015) | 2 lines
+
+quelque modif (pour compiler correctement sous os x)
+
+------------------------------------------------------------------------
+r44 | petit137u | 2015-05-18 09:09:42 +0200 (Lun, 18 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r43 | petit137u | 2015-05-18 08:38:24 +0200 (Lun, 18 mai 2015) | 2 lines
+
+Code un peu plus propre ( utilisation de extern pour les vars globales
+
+------------------------------------------------------------------------
+r42 | petit137u | 2015-05-18 08:27:15 +0200 (Lun, 18 mai 2015) | 2 lines
+
+Score fonctionnel
+
+------------------------------------------------------------------------
+r41 | petit137u | 2015-05-17 19:47:20 +0200 (Dim, 17 mai 2015) | 5 lines
+
+Problème des collisions foirées réglé ( fin amélioration des collisions )
++ on peut plus tirer quand on est mort
++ Accélération du jeux ( pour les collisions et pour que ça soit plus fun )
+
+
+------------------------------------------------------------------------
+r40 | defix1u | 2015-05-16 12:06:18 +0200 (Sam, 16 mai 2015) | 3 lines
+
+le jeu se ferme lorsque le nombre de vies atteint 0 , le score n'est pas encore
+actif.
+
+------------------------------------------------------------------------
+r39 | defix1u | 2015-05-15 20:18:48 +0200 (Ven, 15 mai 2015) | 2 lines
+
+le temps s'affiche a l'ecran (en seconde)
+
+------------------------------------------------------------------------
+r38 | defix1u | 2015-05-15 20:00:58 +0200 (Ven, 15 mai 2015) | 2 lines
+
+les vies apparaissent sur l'ecran
+
+------------------------------------------------------------------------
+r37 | defix1u | 2015-05-13 13:01:18 +0200 (Mer, 13 mai 2015) | 9 lines
+
+_ sprintf permet de convertir un int en char ,
+_ sprintf(le_char,"le texte avec l'entier: %d",entier_a_entrer_dans_le_char)
+
+_ les vies baissent lors de la reapparition du vaisseau
+_ un probleme survient lorsqu'on se fait toucher plusieur fois
+quelque chose dans la boucle doit faire calculer le PC jusqu'à
+figer le jeu , (meme mon ordinateur a figé)
+
+
+------------------------------------------------------------------------
+r36 | petit137u | 2015-05-13 09:36:38 +0200 (Mer, 13 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r35 | petit137u | 2015-05-13 09:34:27 +0200 (Mer, 13 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r34 | defix1u | 2015-05-13 09:02:45 +0200 (Mer, 13 mai 2015) | 2 lines
+
+ajout du tahoma.ttf
+
+------------------------------------------------------------------------
+r33 | defix1u | 2015-05-13 09:01:46 +0200 (Mer, 13 mai 2015) | 2 lines
+
+ajout du Texte
+
+------------------------------------------------------------------------
+r32 | defix1u | 2015-05-12 16:16:04 +0200 (Mar, 12 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r31 | defix1u | 2015-05-12 15:43:48 +0200 (Mar, 12 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r30 | petit137u | 2015-05-12 15:42:23 +0200 (Mar, 12 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r29 | petit137u | 2015-05-08 21:30:23 +0200 (Ven, 08 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r28 | petit137u | 2015-05-08 19:53:42 +0200 (Ven, 08 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r27 | petit137u | 2015-05-06 09:13:43 +0200 (Mer, 06 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r26 | petit137u | 2015-05-05 11:42:11 +0200 (Mar, 05 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r25 | petit137u | 2015-05-02 23:10:07 +0200 (Sam, 02 mai 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r24 | petit137u | 2015-04-29 10:57:55 +0200 (Mer, 29 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r23 | petit137u | 2015-04-28 19:09:30 +0200 (Mar, 28 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r22 | petit137u | 2015-04-28 19:08:40 +0200 (Mar, 28 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r21 | petit137u | 2015-04-21 13:00:05 +0200 (Mar, 21 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r20 | petit137u | 2015-04-20 13:36:22 +0200 (Lun, 20 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r19 | petit137u | 2015-04-19 22:09:42 +0200 (Dim, 19 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r18 | petit137u | 2015-04-07 16:16:07 +0200 (Mar, 07 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r17 | petit137u | 2015-04-07 10:52:16 +0200 (Mar, 07 avr 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r16 | petit137u | 2015-03-31 11:01:38 +0200 (Mar, 31 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r15 | petit137u | 2015-03-25 15:34:49 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r14 | petit137u | 2015-03-25 14:03:40 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r13 | petit137u | 2015-03-25 11:34:30 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r12 | petit137u | 2015-03-25 10:42:32 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r11 | petit137u | 2015-03-25 09:48:10 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r10 | petit137u | 2015-03-25 08:31:32 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r9 | petit137u | 2015-03-25 08:30:05 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r8 | petit137u | 2015-03-25 08:21:27 +0100 (Mer, 25 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r7 | petit137u | 2015-03-24 16:54:52 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r6 | petit137u | 2015-03-24 16:35:55 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r5 | petit137u | 2015-03-24 16:34:15 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r4 | petit137u | 2015-03-24 16:33:02 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r3 | petit137u | 2015-03-24 15:10:59 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r2 | defix1u | 2015-03-24 14:57:07 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
+r1 | defix1u | 2015-03-24 14:33:01 +0100 (Mar, 24 mar 2015) | 1 line
+
+
+------------------------------------------------------------------------
