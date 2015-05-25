@@ -2,9 +2,9 @@
 iskernelosx=`uname | grep Darwin`
 if [ -z "$iskernelosx" ]; 
 then
-	cp Makefile_linux Makefile
+	cp Makefile.linux Makefile
 else
-	cp Makefile_osx Makefile
+	cp Makefile.osx Makefile
 fi
 make clean
 make
